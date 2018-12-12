@@ -44,7 +44,6 @@ namespace NoteAppUI
 			this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
 			this.textBox2 = new System.Windows.Forms.TextBox();
-			this.l = new System.Windows.Forms.ListBox();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.textBox1 = new System.Windows.Forms.TextBox();
 			this.textBox3 = new System.Windows.Forms.TextBox();
@@ -54,6 +53,7 @@ namespace NoteAppUI
 			this.textBox5 = new System.Windows.Forms.TextBox();
 			this.label2 = new System.Windows.Forms.Label();
 			this.label1 = new System.Windows.Forms.Label();
+			this.listbox1 = new System.Windows.Forms.ListBox();
 			this.menuStrip2.SuspendLayout();
 			this.SuspendLayout();
 			// 
@@ -189,17 +189,6 @@ namespace NoteAppUI
 			this.textBox2.Text = "Show Category:";
 			this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
 			// 
-			// l
-			// 
-			this.l.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
-			this.l.FormattingEnabled = true;
-			this.l.Location = new System.Drawing.Point(12, 51);
-			this.l.Name = "l";
-			this.l.Size = new System.Drawing.Size(193, 264);
-			this.l.TabIndex = 7;
-			this.l.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
-			// 
 			// comboBox1
 			// 
 			this.comboBox1.FormattingEnabled = true;
@@ -294,6 +283,17 @@ namespace NoteAppUI
 			this.label1.Size = new System.Drawing.Size(0, 13);
 			this.label1.TabIndex = 17;
 			// 
+			// listbox1
+			// 
+			this.listbox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+			this.listbox1.FormattingEnabled = true;
+			this.listbox1.Location = new System.Drawing.Point(12, 51);
+			this.listbox1.Name = "listbox1";
+			this.listbox1.Size = new System.Drawing.Size(193, 264);
+			this.listbox1.TabIndex = 7;
+			this.listbox1.SelectedIndexChanged += new System.EventHandler(this.listBox1_SelectedIndexChanged);
+			// 
 			// MainForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -308,7 +308,7 @@ namespace NoteAppUI
 			this.Controls.Add(this.textBox3);
 			this.Controls.Add(this.textBox1);
 			this.Controls.Add(this.comboBox1);
-			this.Controls.Add(this.l);
+			this.Controls.Add(this.listbox1);
 			this.Controls.Add(this.textBox2);
 			this.Controls.Add(this.button3);
 			this.Controls.Add(this.button2);
@@ -344,7 +344,6 @@ namespace NoteAppUI
 		private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
 		private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
 		private System.Windows.Forms.TextBox textBox2;
-		private System.Windows.Forms.ListBox l;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.TextBox textBox3;
@@ -354,6 +353,7 @@ namespace NoteAppUI
 		private System.Windows.Forms.TextBox textBox5;
 		private System.Windows.Forms.Label label2;
 		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.ListBox listbox1;
 	}
 }
 

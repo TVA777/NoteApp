@@ -14,7 +14,7 @@ namespace NoteAppUI
 {
 	public partial class MainForm : Form
 	{
-
+		private Project _project = new Project();
 
 		public MainForm()
 		{
@@ -28,39 +28,38 @@ namespace NoteAppUI
 			comboBox1.Items.Add(NoteCategory.Health_and_sport);
 			comboBox1.Items.Add(NoteCategory.People);
 			comboBox1.Items.Add(NoteCategory.Documents);
+		
 
 		}
 		private void Edit_Click(object sender, EventArgs e)
 		{
 			EditForm EdForm = new EditForm();
-			EdForm.Show();
+			EdForm.ShowDialog();
+			var selectedIndex = listbox1.SelectedIndex;
+			var selectedData = _project.Notes[selectedIndex];
+			var inner = new EditForm(); //Создаем форму
+			inner.Note = selectedData; //Передаем форме данные
+			inner.ShowDialog(); //Отображаем форму для редактирования
+			var updatedData = inner.Note; //Забираем измененные данные
+											 //Осталось удалить старые данные по выбранному индексу
+											 // и заменить их на обновленные
+			listbox1.Items.RemoveAt(selectedIndex);
+			_project.Notes.RemoveAt(selectedIndex);
+			_project.Notes.Insert(selectedIndex, updatedData);
+			var time = updatedData.timeModificated.ToLongTimeString();
+			var text = updatedData.NoteText;
+			listbox1.Items.Insert(selectedIndex, time + " " + text);
 
 		}
 		private void Add_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog dialogForm = new OpenFileDialog();
-			dialogForm.ShowDialog();
-			string filename = dialogForm.FileName;
+			EditForm EdForm = new EditForm();
+			EdForm.ShowDialog();
 			
 		}
 		private void Remove_Click(object sender, EventArgs e)
 		{
-			//Выход
-			DialogResult result = MessageBox.Show("Сохранить файл?", "NoteApp",
-				MessageBoxButtons.YesNoCancel,
-				MessageBoxIcon.Question);
-			{
-				SaveFileDialog dialogForm = new SaveFileDialog();
-				if (result == DialogResult.Yes) // При выборе "да":
-				{
-					var filename = dialogForm.FileName;
-				}
-				if (result == DialogResult.No) // При выборе "нет":
-				{
-					Close();
-				}
-			}
-
+			
 		}
 
 		private void textBox2_TextChanged(object sender, EventArgs e)
@@ -85,47 +84,18 @@ namespace NoteAppUI
 
 		private void removeNoteToolStripMenuItem1_Click(object sender, EventArgs e)
 		{
-			//Удаление
-			DialogResult result = MessageBox.Show("Сохранить файл?", "NoteApp",
-				MessageBoxButtons.YesNoCancel,
-				MessageBoxIcon.Question);
-			{
-				SaveFileDialog dialogForm = new SaveFileDialog();
-				if (result == DialogResult.Yes) // При выборе "да":
-				{
-					dialogForm.ShowDialog();
-					var filename = dialogForm.FileName;
-				}
-				if (result == DialogResult.No) // При выборе "нет":
-				{
-					Close();
-				}
-			}
+			
 		}
 
 		private void addNoteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			OpenFileDialog dialogForm = new OpenFileDialog();
-			dialogForm.ShowDialog();
-			string filename = dialogForm.FileName;
+	
 
 		}
 
 		private void removeNoteToolStripMenuItem_Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Сохранить файл?", "NoteApp",
-				   MessageBoxButtons.YesNoCancel,
-				   MessageBoxIcon.Question);
-			SaveFileDialog dialogForm = new SaveFileDialog();
-			if (result == DialogResult.Yes) // При выборе "да":
-			{
-				dialogForm.ShowDialog();
-				var filename = dialogForm.FileName;
-			}
-			if (result == DialogResult.No) // При выборе "нет":
-			{
-				Close();
-			}
+			
 		}
 
 		private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -143,7 +113,8 @@ namespace NoteAppUI
 		{
 			EditForm EdForm = new EditForm();
 			EdForm.Show();
-		}
+		}	
+			
 
 		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{

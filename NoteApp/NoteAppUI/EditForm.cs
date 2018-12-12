@@ -13,6 +13,24 @@ namespace NoteAppUI
 {
 	public partial class EditForm : Form
 	{
+		private Note _note;
+		public Note Note
+		{
+			get
+			{
+				return _note;
+			}
+			set
+			{
+				_note = value;
+				if (_note != null)
+				{
+					textBox3.Text = _note.NoteText;
+				}
+
+			}
+		}
+
 		public EditForm()
 		{
 			InitializeComponent();
@@ -30,23 +48,13 @@ namespace NoteAppUI
 		}
 		private void textBox3_TextChanged(object sender, EventArgs e)
 		{
-
+			_note.NoteText = textBox3.Text;
+			_note.timeModificated = DateTime.Now; 
 		}
 		private void button1_Click(object sender, EventArgs e)
 		{
-			DialogResult result = MessageBox.Show("Сохранить файл?", "NoteApp",
-				MessageBoxButtons.OKCancel,
-				MessageBoxIcon.Question);
-			SaveFileDialog dialogForm = new SaveFileDialog();
-			if (result == DialogResult.OK)
-			{
-				var filename = dialogForm.FileName;
-				Close();
-			}
-			if (result == DialogResult.Cancel)
-			{ 
-			}
-		
+			DialogResult = DialogResult.OK;
+			this.Close();
 		}
 		private void button2_Click(object sender, EventArgs e)
 		{

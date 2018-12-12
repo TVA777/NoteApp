@@ -82,6 +82,17 @@ namespace NoteApp
 				timeCreated = value;
 			}
 		}
+		public DateTime timeModificated
+		{
+			get
+			{
+				return timeModificated;
+			}
+			set
+			{
+				timeModificated = value;
+			}
+		}
 		public Note()
 		{
 			timeCreated = DateTime.Now;
