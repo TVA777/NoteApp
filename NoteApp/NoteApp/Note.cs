@@ -60,8 +60,8 @@ namespace NoteApp
 			get { return _NoteCategory; }
 			set { _NoteCategory = value; }
 		}
-		public string NoteText
-		{
+
+		public string NoteText {
 			get
 			{
 				return _noteText;
@@ -71,33 +71,21 @@ namespace NoteApp
 				_noteText = value;
 			}
 		}
-		public DateTime timeCreated
-		{
-			get
-			{
-				return timeCreated;
-			}
-			set
-			{
-				timeCreated = value;
-			}
-		}
-		public DateTime timeModificated
-		{
-			get
-			{
-				return timeModificated;
-			}
-			set
-			{
-				timeModificated = value;
-			}
-		}
+
+		public DateTime timeCreated { get; set; }
+
+		public DateTime timeModificated { get; set; }
+
 		public Note()
 		{
 			timeCreated = DateTime.Now;
 			_title = "Без названия";
 			_noteText = "None";
 		}
+
+	    public override string ToString()
+	    {
+	        return Title;
+	    }
 	}
 }

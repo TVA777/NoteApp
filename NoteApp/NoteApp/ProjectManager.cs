@@ -1,37 +1,42 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using System.IO;
 namespace NoteApp
 {
-	static class ProjectManager
+
+	public static class ProjectManager
 	{
-		private const string _PathFile = @"";
-		public static void serek(Project se)
+		private static string _PathFile = @"";
+		public static void SaveToFile(Project se, string filename)
 		{
-			JsonSerializer serializer = new JsonSerializer();
+		    _PathFile = filename;
+            JsonSerializer serializer = new JsonSerializer();
 			//Открываем поток для записи в файл с указанием пути 
-			using (StreamWriter sw = new StreamWriter(@"c:\json.txt"))
+			using (StreamWriter sw = new StreamWriter(filename))
 			using (JsonWriter writer = new JsonTextWriter(sw))
 			{
 				//Вызываем сериализацию и передаем объект, который хотим сериализовать 
 				serializer.Serialize(writer, se);
 			}
 		}
-		public static Project deserek()
+		public static Project LoadFromFile(string filename)
 		{
+		    _PathFile = filename;
 			Project deNote = null;
+            // Если файл отсутствует, создать его и вернуть новый 
+		    if (!File.Exists(filename))
+		    {
+		        deNote = new Project();
+		        SaveToFile(deNote,filename);
+		        return deNote;
+		    }
 			//Создаём экземпляр сериализатора 
 			JsonSerializer serializer = new JsonSerializer();
 			//Открываем поток для чтения из файла с указанием пути 
-			using (StreamReader sr = new StreamReader(@"c:\json.txt"))
+			using (StreamReader sr = new StreamReader(filename))
 			using (JsonReader reader = new JsonTextReader(sr))
 			{
 				//Вызываем десериализацию и явно преобразуем результат в целевой тип данных 
-				deNote = (Project)serializer.Deserialize(reader);
+				deNote = (Project)serializer.Deserialize<Project>(reader);
 			}
 			return deNote;
 		}
