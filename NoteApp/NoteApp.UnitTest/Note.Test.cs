@@ -8,10 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 
 
-namespace NoteApp
+namespace NoteApp.UnitTest
 {
 	/// <summary> Класс записи </summary>
-	public class Note
+	public class NoteTest
 	{
 		/// <summary>
 		/// Название
@@ -20,7 +20,7 @@ namespace NoteApp
 		/// <summary>
 		/// Категории заметок
 		/// </summary>
-		private NoteCategory _NoteCategory;
+		private NoteCategoryTest _NoteCategory;
 		/// <summary>
 		/// Текст заметки
 		/// </summary>
@@ -53,7 +53,7 @@ namespace NoteApp
 			}
 		}
 
-		public NoteCategory Category
+		public NoteCategoryTest Category
 		{
 			get { return _NoteCategory; }
 			set { _NoteCategory = value; }
@@ -74,7 +74,7 @@ namespace NoteApp
 
 		public DateTime timeModificated { get; set; }
 
-		public Note()
+		public NoteTest()
 		{
 			timeCreated = DateTime.Now;
 			_title = "Без названия";
