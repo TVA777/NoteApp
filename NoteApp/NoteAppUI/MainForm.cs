@@ -62,6 +62,7 @@ namespace NoteAppUI
 		        _project.Notes[projectIndex] = edit;
                 ProjectManager.SaveToFile(_project,"json.txt");
 		        listbox1.Items[selectedIndex] = edit;
+				textBox5.Text = edit.NoteText;
 		        listbox1.Refresh();
 		        dateTimePicker1.Value = edit.timeCreated > dateTimePicker1.MinDate ? edit.timeCreated : dateTimePicker1.MinDate;
 		        dateTimePicker2.Value = edit.timeModificated > dateTimePicker2.MinDate ? edit.timeModificated : dateTimePicker2.MinDate;
@@ -82,7 +83,8 @@ namespace NoteAppUI
 		        _project.Notes.Add(edit);
 		        ProjectManager.SaveToFile(_project, "json.txt");
 		        listbox1.Items.Add(edit);
-		        listbox1.Refresh();
+				textBox5.Text = edit.NoteText;
+				listbox1.Refresh();
 		        dateTimePicker1.Value = edit.timeCreated > dateTimePicker1.MinDate ? edit.timeCreated : dateTimePicker1.MinDate;
 		        dateTimePicker2.Value = edit.timeModificated > dateTimePicker2.MinDate ? edit.timeModificated : dateTimePicker2.MinDate;
 		    }
@@ -147,5 +149,15 @@ namespace NoteAppUI
             ProjectManager.SaveToFile(_project, "json.txt");
             Close();
         }
-    }
+
+		private void textBox3_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBox5_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

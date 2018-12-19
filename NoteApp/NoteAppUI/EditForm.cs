@@ -53,8 +53,6 @@ namespace NoteAppUI
 		{
 		    Note.NoteText = textBox5.Text;
 		    Note.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory), comboBox2.SelectedItem.ToString());
-		    Note.NoteText = textBox3.Text;
-		    dateTimePicker2.Value = _note.timeModificated = DateTime.Now;
 		    Note.Title = textBox6.Text;
             DialogResult = DialogResult.OK;
 
