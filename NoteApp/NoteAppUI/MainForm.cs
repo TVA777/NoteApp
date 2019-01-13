@@ -69,7 +69,6 @@ namespace NoteAppUI
 		    }
 
         }
-
         /// <summary>
         /// Добавление нового Note
         /// </summary>
@@ -156,6 +155,21 @@ namespace NoteAppUI
 		}
 
 		private void textBox5_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBox4_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+
+		private void label2_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void textBox1_TextChanged(object sender, EventArgs e)
 		{
 
 		}

@@ -74,5 +74,9 @@ namespace NoteAppUI
 		    Note.Category = (NoteCategory)Enum.Parse(typeof(NoteCategory), comboBox2.SelectedItem.ToString());
 		}
 
-    }
+		private void textBox6_TextChanged(object sender, EventArgs e)
+		{
+
+		}
+	}
 }

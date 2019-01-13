@@ -208,6 +208,7 @@ namespace NoteAppUI
 			this.textBox1.Size = new System.Drawing.Size(100, 13);
 			this.textBox1.TabIndex = 9;
 			this.textBox1.Text = "Category:";
+			this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
 			// 
 			// textBox3
 			// 
@@ -239,6 +240,7 @@ namespace NoteAppUI
 			this.textBox4.Size = new System.Drawing.Size(100, 13);
 			this.textBox4.TabIndex = 12;
 			this.textBox4.Text = "Modified:";
+			this.textBox4.TextChanged += new System.EventHandler(this.textBox4_TextChanged);
 			// 
 			// dateTimePicker2
 			// 
@@ -271,6 +273,7 @@ namespace NoteAppUI
 			this.label2.Name = "label2";
 			this.label2.Size = new System.Drawing.Size(399, 13);
 			this.label2.TabIndex = 16;
+			this.label2.Click += new System.EventHandler(this.label2_Click);
 			// 
 			// label1
 			// 
